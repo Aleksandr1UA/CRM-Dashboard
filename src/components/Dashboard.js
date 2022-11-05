@@ -1,7 +1,7 @@
 import './Dashboard.scss';
 import { useState } from "react";
 import { Button, Col, Container, ListGroup, Offcanvas, Row } from "react-bootstrap";
-import { Sliders2 } from "react-bootstrap-icons";
+import { List, Sliders, Sliders2 } from "react-bootstrap-icons";
 import { Link, Outlet } from "react-router-dom";
 
 function Dashboard() {
@@ -42,19 +42,15 @@ function Dashboard() {
         }
     ];
 
-    const activeItem = {
-        borderRadius: 'borderRadius: 8px',
-        background: 'background: #5932EA'
-    };
-
-    const [active, setActive] = useState();
+    const [menuItem, setMenuItem] = useState(0);
     
     return <Container className={'mx-0 px-0'}>
         <Row>
-            <Col xxl={12} className={'d-flex justify-content-between align-items-center'}>
-                <Link className={'h6 mb-0 fw-bold d-xxl-none'} to='/'>Menu</Link>
-                <Button variant={'primary'} className={'d-xxl-none'} onClick={handleShow}>
-                    <Sliders2 />
+            <Col xxl={12} className={'d-flex justify-content-end align-items-center'}>
+                <Button variant={'primary'} className={'d-xxl-none btn-show-menu'} onClick={handleShow}>
+                    <div className={`${show ? 'change' : ''} btn-bar1`}></div>
+                    <div className={`${show ? 'change' : ''} btn-bar2`}></div>
+                    <div className={`${show ? 'change' : ''} btn-bar3`}></div>
                 </Button>
             </Col>
         </Row>
@@ -66,9 +62,7 @@ function Dashboard() {
                         responsive={'xxl'} 
                         placement={'start'} 
                         tabIndex={'-1'}>
-                    <Offcanvas.Header className={'bg-light'} closeButton>
-                        <Offcanvas.Title className={'h5'}>Dashboard</Offcanvas.Title>
-                    </Offcanvas.Header>
+                    <Offcanvas.Header className={'bg-light justify-content-end'} closeButton></Offcanvas.Header>
                     <Offcanvas.Body className={'dashboard-menu'}>
                         <div className={'menu-title'}>
                             <img src={'./dashboard-icon/setting 1.png'} className={'menu-title-icon'} alt={'setting'} />
@@ -77,10 +71,12 @@ function Dashboard() {
                         </div>
                         <ListGroup>
                             {
-                                dashboard.map((item, i) => <Link to={item.name} className={`list-group-item`} key={i}>
-                                    <div className={`${item.id === i ? 'active' : ''} menu-item`} data-index={i}>
-                                        <img src={`./dashboard-icon/${item.iconName}.png`}
-                                            style={{stroke: '#d3f5d6'}} 
+                                dashboard.map((item, i) => <Link to={item.name} 
+                                        onClick={() => setMenuItem(i + 1)}
+                                        className={`${menuItem === item.id ? 'active-menu-item' : ''} list-group-item`} 
+                                        key={i}>
+                                    <div className={`menu-item`}>
+                                        <img src={`./dashboard-icon/${item.iconName}.png`} 
                                             className={'icon-dashboard-menu'} 
                                             alt={item.iconName} />
                                         <span>{item.name}</span>
@@ -91,13 +87,19 @@ function Dashboard() {
                                 </Link>)
                             }
                         </ListGroup>
+                        <div className={'menu-footer'}>
+                            <div className={'user-logo'}></div>
+                            <div className={'user-title'}>
+                                <p>Evano</p>
+                                <p>project manager</p>
+                            </div>
+                        </div>
                     </Offcanvas.Body>
                 </Offcanvas>
             </Col>
-            <Col xxl={9}>
+            <Col xxl={9} className={'dashboard-right-block'}>
                 <div className={'greetings-user'}>
-                    <h2>Hello Evano 
-                        <span></span>, 
+                    <h2>Hello Evano &#128075;,
                     </h2>
                 </div>
                 <Outlet />
