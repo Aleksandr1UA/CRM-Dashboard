@@ -1,0 +1,152 @@
+.row.customers-item-block {
+    width: 968px;
+    margin-left: 71px;
+    --bs-gutter-x: 0;
+    border-radius: 30px;
+    box-shadow: 0px 10px 60px rgba(226, 236, 249, .5);
+    background: #FFFFFF;
+
+    .header-title {
+        margin: 30px 0 7px 38px;
+        font-family: 'Poppins-Bold';
+        font-size: 22px;
+        line-height: 33px;
+        letter-spacing: -0.01em;
+        text-transform: capitalize;
+        color: #000000;
+    }
+
+    p {
+        margin-left: 38px;
+        font-family: 'Poppins-Regular';
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: -0.01em;
+        text-transform: capitalize;
+        color: #16C098;
+    }
+
+    .search-block {
+        margin: 44px 53px 49px 0;
+
+        .search-item {
+            padding: 10px 0;
+            width: 216px;
+            border: none;
+            border-radius: 10px;
+            background: #F9FBFF;
+        }
+    }
+
+    .table-block {
+        .table {
+            border-bottom: 1px solid #EEEEEE;
+
+            .thead-item, .customer-item, .btn-customer-status {
+                padding: 0;
+                font-size: 14px;
+                line-height: 21px;
+                letter-spacing: -0.01em;
+                text-transform: capitalize;
+                color: #B5B7C0;
+            }
+
+            .thead-item:first-child {
+                padding-left: 38px;
+            }
+
+            .thead-item:last-child {
+                padding-left: 16px;
+            }
+    
+            .customer-item {
+                vertical-align: middle;
+                padding: 24px 0;
+                text-transform: none;
+                color: #292D32;
+            }
+
+            .customer-item:first-child {
+                padding-left: 38px;
+            }
+
+            .btn-customer-green, .btn-customer-red {
+                width: 80px;
+                padding: 4px 12px;
+                gap: 10px;
+                text-transform: none;
+                border: 1px solid #00B087;
+                border-radius: 4px;
+                background: rgba(22, 192, 152, .38);
+                color: #008767;
+
+            }
+
+            .btn-customer-red {
+                border: 1px solid #DF0404;
+                background: #FFC5C5;
+                color: #DF0404;
+            }
+        } 
+
+        .pagination-block {
+            align-items: center;
+            padding-top: 32px;
+            padding-bottom: 40px;
+
+            .left-pagination-block {
+
+                p {
+                    text-transform: none;
+                    color: #B5B7C0;
+                }
+            }
+
+            .right-pagination-block {
+
+                .pagination {
+                    display: flex;
+                    justify-content: end;
+                    margin-right: 40px;
+
+                    .page-item {
+                        width: 26px;
+                        height: 24px;
+                        margin-right: 12px;
+                        padding: 6px 9px;
+                        font-size: 12px;
+                        line-height: 100%;
+                        letter-spacing: -0.01em;
+                        text-decoration: none;
+                        border-radius: 4px;
+                        border: 1px solid #EEEEEE;
+                        color: #404B52;
+                        background: #F5F5F5;
+                        
+                        &:nth-child(7) {
+                            padding: 6px 5px;
+                        }
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+
+                    .page-ellipsis {
+                        color: #000000;
+                        border: none;
+                        background: none;
+                        cursor: auto;
+                    }
+
+                    .active-page {
+                        border-radius: 4px;
+                        border: 1px solid #5932EA;
+                        background: #5932EA;
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+}
