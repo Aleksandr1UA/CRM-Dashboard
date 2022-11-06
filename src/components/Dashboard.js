@@ -1,7 +1,6 @@
 import './Dashboard.scss';
 import { useState } from "react";
 import { Button, Col, Container, ListGroup, Offcanvas, Row } from "react-bootstrap";
-import { List, Sliders, Sliders2 } from "react-bootstrap-icons";
 import { Link, Outlet } from "react-router-dom";
 
 function Dashboard() {
@@ -44,10 +43,10 @@ function Dashboard() {
 
     const [menuItem, setMenuItem] = useState(0);
     
-    return <Container className={'mx-0 px-0'}>
-        <Row>
-            <Col xxl={12} className={'d-flex justify-content-end align-items-center'}>
-                <Button variant={'primary'} className={'d-xxl-none btn-show-menu'} onClick={handleShow}>
+    return <Container className={'mx-xl-0 px-0'}>
+        <Row className={'d-md-flex d-lg-none'}>
+            <Col lg={9} className={'d-flex justify-content-end align-items-center btn-menu-block'}>
+                <Button variant={'primary'} className={'d-lg-none btn-show-menu'} onClick={handleShow}>
                     <div className={`${show ? 'change' : ''} btn-bar1`}></div>
                     <div className={`${show ? 'change' : ''} btn-bar2`}></div>
                     <div className={`${show ? 'change' : ''} btn-bar3`}></div>
@@ -55,11 +54,11 @@ function Dashboard() {
             </Col>
         </Row>
         <Row>
-            <Col xxl={3}>
+            <Col lg={3}>
                 <Offcanvas show={show} 
                         onHide={handleClose}
                         className={'offcanvas-block bg-white'} 
-                        responsive={'xxl'} 
+                        responsive={'lg'} 
                         placement={'start'} 
                         tabIndex={'-1'}>
                     <Offcanvas.Header className={'bg-light justify-content-end'} closeButton></Offcanvas.Header>
@@ -80,7 +79,7 @@ function Dashboard() {
                                             className={'icon-dashboard-menu'} 
                                             alt={item.iconName} />
                                         <span>{item.name}</span>
-                                        <svg className={'arrow-icon'} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg className={`${item.id === 1 ? 'd-none' : ''} arrow-icon`} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M6 12L10 8L6 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>
                                     </div>
@@ -97,10 +96,9 @@ function Dashboard() {
                     </Offcanvas.Body>
                 </Offcanvas>
             </Col>
-            <Col xxl={9} className={'dashboard-right-block'}>
+            <Col lg={9} sm={12} className={'dashboard-right-block'}>
                 <div className={'greetings-user'}>
-                    <h2>Hello Evano &#128075;,
-                    </h2>
+                    <h2>Hello Evano &#128075;,</h2>
                 </div>
                 <Outlet />
             </Col>

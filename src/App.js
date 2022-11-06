@@ -9,7 +9,7 @@ import PromoteItem from './components/dashboard/PromoteItem';
 import HelpItem from './components/dashboard/HelpItem';
 
 function App() {
-  return <div>
+  return <>
     <Routes>
       <Route path='/' element={<Dashboard />}>
         <Route path='dashboard' element={<DashboardItem />} />
@@ -20,7 +20,7 @@ function App() {
         <Route path='help' element={<HelpItem />} />
       </Route>
     </Routes>
-  </div>
+  </>
 }
 
 export default App;

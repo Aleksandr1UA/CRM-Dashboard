@@ -1,7 +1,8 @@
 .row.customers-item-block {
     display: flex;
     flex-direction: column;
-    width: 968px;
+    max-width: 968px;
+    margin-right: 0;
     margin-left: 71px;
     --bs-gutter-x: 0;
     border-radius: 30px;
@@ -96,12 +97,27 @@
                 background: rgba(22, 192, 152, .38);
                 color: #008767;
 
+                &:hover {
+                    background: rgba(27, 239, 189, 0.38);
+                }
+
+                &:focus {
+                    background: rgba(15, 146, 116, 0.38);
+                }
             }
 
             .btn-customer-red {
                 border: 1px solid #DF0404;
                 background: #FFC5C5;
                 color: #DF0404;
+
+                &:hover {
+                    background: #ffd4d4;
+                }
+
+                &:focus {
+                    background: #ff9d9d;
+                }
             }
         } 
     }
@@ -171,5 +187,19 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .mx_sm-auto {
+        margin-right: auto !important;
+        margin-left: auto !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .row.customers-item-block .table-block .table .thead-item, .row-customer {
+        text-align: center;
+        vertical-align: middle;
     }
 }

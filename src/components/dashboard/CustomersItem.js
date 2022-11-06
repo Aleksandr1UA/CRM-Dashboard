@@ -90,8 +90,8 @@ function CustomersItem() {
     const totalPages = [0, 1, 2, 3];
     const lastPage = 40;
 
-    return <Row className={'customers-item-block'}>
-        <Col className={'d-flex justify-content-between'}>
+    return <Row className={'customers-item-block mx_sm-auto'}>
+        <Col lg={12}className={'d-flex justify-content-between'}>
             <div>
                 <h3 className={'header-title'}>all customers</h3>
                 <p>active members</p>
@@ -101,7 +101,7 @@ function CustomersItem() {
                 {searchValue && !filteredCustomers.length ? <div className={'text-center'}>Not Found</div> : ''}
             </div>
         </Col>
-        <Col className={'table-block'}>
+        <Col lg={12} className={'table-block'}>
             <Table responsive={'xl'}>
                 <thead>
                     <tr>
@@ -128,7 +128,7 @@ function CustomersItem() {
                 </tbody>
             </Table>
         </Col>
-        <Col className={'pagination-block'}>
+        <Col lg={12} className={'pagination-block'}>
             <div className={'left-pagination-block'}>
                 <p>Showing data {page} to 8 of 256K entries</p>
             </div>
